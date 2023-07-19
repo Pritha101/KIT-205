@@ -29,22 +29,52 @@
 }
 */
 
+void option_insert(List* self) {
+    int data;
+    printf_s("Write data to insert: ");
+    scanf_s("%d", &data);
+    insert_at_front(self, data);
+}
+
+void option_delete(List* self) {
+    int data;
+    printf_s("Write data to delete: ");
+    scanf_s("%d", &data);
+    delete_list(self, data);
+}
+
+void option_print(List* self){
+    print_list(self);
+}
+
 int main() {
     List my_list = new_list();
     int quit = 0;
     while (!quit) {
         int option;
-        printf_s("If you press 0 : Quit  press 1 : insert data press2 : delete data Press 3: print ");
+        printf_s("Options:\n");
+        printf_s("1. Insert\n");
+        printf_s("2. Delete\n");
+        printf_s("3. Print\n");
+        printf_s("0. Exit\n");
+        printf_s("Enter option: ");
         scanf_s("%d", &option);
 
-        if (option == 1) {
+        switch (option) {
+        case 1:
             option_insert(&my_list);
-        }
-        if (option == 2) {
+            break;
+        case 2:
             option_delete(&my_list);
-        }
-        if (option == 3) {
+            break;
+        case 3:
             option_print(&my_list);
+            break;
+        case 0:
+            printf_s("Exiting...\n");
+            break;
+        default:
+            printf_s("Invalid option. Try again.\n");
         }
 
     }
