@@ -4,7 +4,7 @@
 #include "list.h"
 
 
-int main() {
+/*int main() {
    //List list = new_list();
 
     //insert_at_front(&list, 1);
@@ -27,12 +27,30 @@ int main() {
 
     return 0;
 }
+*/
 
-/*int main() {
+int main() {
     List my_list = new_list();
-    int quit
+    int quit = 0;
+    while (!quit) {
+        int option;
+        printf_s("If you press 0 : Quit  press 1 : insert data press2 : delete data Press 3: print ");
+        scanf_s("%d", &option);
+
+        if (option == 1) {
+            option_insert(&my_list);
+        }
+        if (option == 2) {
+            option_delete(&my_list);
+        }
+        if (option == 3) {
+            option_print(&my_list);
+        }
+
+    }
+    destroy_list(&my_list);
 
 
     return 0;
-}*/
+}
 
