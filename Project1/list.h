@@ -28,3 +28,8 @@ void delete_list(List* self, int data);
 
 // Function to free the memory allocated to a list and all its nodes.
 void destroy_list(List* self);
+
+//Function to reverse the list from original sequence.
+void reverse_list(List* self);
+
+//Function to merge that takes two ordered lists as parameters and creates a merged list which is ordered

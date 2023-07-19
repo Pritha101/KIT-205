@@ -91,3 +91,8 @@ void destroy_list(List* self) {
 	}
 	self->head = NULL;
 }
+
+// Function to reverse the list from original sequence.
+void reverse_list(List* self) {
+	
+}
