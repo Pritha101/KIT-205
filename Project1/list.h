@@ -30,6 +30,7 @@ void delete_list(List* self, int data);
 void destroy_list(List* self);
 
 //Function to reverse the list from original sequence.
-void reverse_list(List* self);
+List reverse(List* self);
 
 //Function to merge that takes two ordered lists as parameters and creates a merged list which is ordered
+List merge(List* list1, List* list2);

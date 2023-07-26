@@ -47,6 +47,8 @@ void option_print(List* self){
     print_list(self);
 }
 
+/*
+
 int main() {
     List my_list = new_list();
     int quit = 0;
@@ -80,6 +82,39 @@ int main() {
     }
     destroy_list(&my_list);
 
+
+    return 0;
+}*/
+
+
+int main() {
+    List list1, list2;
+    list1.head = NULL;
+    list2.head = NULL;
+
+    // Testing insert_at_front function
+    printf("Testing insert_at_front:\n");
+    for (int i = 1; i <= 5; i++) {
+        insert_at_front(&list1, i); // Insert elements 1 to 5 at the front of list1
+    }
+    printf("List 1: ");
+    print_list(&list1);
+
+    // Testing insert_in_order function
+    printf("\nTesting insert_in_order:\n");
+    insert_in_order(&list2, 5); // Insert 5 into an empty list2
+    insert_in_order(&list2, 1); // Insert 1 at the front of list2
+    insert_in_order(&list2, 3); // Insert 3 in the middle of list2
+    insert_in_order(&list2, 2); // Insert 2 in the middle of list2
+    insert_in_order(&list2, 4); // Insert 4 at the end of list2
+    printf("List 2: ");
+    print_list(&list2);
+
+    // Testing merge function
+    printf("\nTesting merge:\n");
+    List merged_list = merge(&list1, &list2);
+    printf("Merged List: ");
+    print_list(&merged_list);
 
     return 0;
 }
