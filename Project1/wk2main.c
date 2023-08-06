@@ -1,7 +1,8 @@
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
+
 
 
 /*int main() {
@@ -29,7 +30,7 @@
 }
 */
 
-void option_insert(List* self) {
+/*void option_insert(List* self) {
     int data;
     printf_s("Write data to insert: ");
     scanf_s("%d", &data);
@@ -87,7 +88,7 @@ int main() {
 }*/
 
 
-int main() {
+/*int main() {
     List list1, list2;
     list1.head = NULL;
     list2.head = NULL;
@@ -118,4 +119,19 @@ int main() {
 
     return 0;
 }
+*/
 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "bst.h"
+
+int main() {
+
+    bst_test();
+
+
+
+    return 0;
+}

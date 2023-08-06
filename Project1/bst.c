@@ -146,3 +146,27 @@ void bst_test() {
 	print_in_order_bst(&tree);
 	printf_s("\n");
 }
+
+void print_pre_order_bst_recursive(BSTNodePtr node) {
+	if (node != NULL) {
+		printf("%d ", node->data_item);
+		print_pre_order_bst_recursive(node->left);
+		print_pre_order_bst_recursive(node->right);
+	}
+}
+
+void print_pre_order_bst(BST* self) {
+	print_pre_order_bst_recursive(self->root);
+}
+
+void print_post_order_bst_recursive(BSTNodePtr node) {
+	if (node != NULL) {
+		print_post_order_bst_recursive(node->left);
+		print_post_order_bst_recursive(node->right);
+		printf("%d ", node->data_item);
+	}
+}
+
+void print_post_order_bst(BST* self) {
+	print_post_order_bst_recursive(self->root);
+}

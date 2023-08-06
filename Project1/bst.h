@@ -69,3 +69,9 @@ void print_in_order_bst(BST* self);
 void destroy_bst(BST* self);
 
 void bst_test();
+
+
+void print_pre_order_bst(BST* self);  // New function for pre-order printing
+
+
+void print_post_order_bst(BST* self); // New function for post-order printing
