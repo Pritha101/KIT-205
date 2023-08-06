@@ -88,6 +88,7 @@ BSTNodePtr delete_bst_node(BSTNodePtr self, int n) {
 	return self;
 }
 
+
 // delete a value from the tree
 void delete_bst(BST* self, int n) {
 	self->root = delete_bst_node(self->root, n);
@@ -111,6 +112,49 @@ void print_in_order_bst_node(BSTNodePtr self) {
 void print_in_order_bst(BST* self) {
 	print_in_order_bst_node(self->root);
 }
+
+
+void print_pre_order_bst_recursive(BSTNodePtr node) {
+	if (node != NULL) {
+		printf("%d ", node->data_item);
+		print_pre_order_bst_recursive(node->left);
+		print_pre_order_bst_recursive(node->right);
+	}
+}
+
+void print_pre_order_bst(BST* self) {
+	print_pre_order_bst_recursive(self->root);
+}
+
+void print_post_order_bst_recursive(BSTNodePtr node) {
+	if (node != NULL) {
+		print_post_order_bst_recursive(node->left);
+		print_post_order_bst_recursive(node->right);
+		printf("%d ", node->data_item);
+	}
+}
+
+void print_post_order_bst(BST* self) {
+	print_post_order_bst_recursive(self->root);
+}
+
+
+int height_bst_node(BSTNodePtr node) {
+	if (node == NULL) {
+		return -1; // Empty tree has height -1
+	}
+	else {
+		int left_height = height_bst_node(node->left);
+		int right_height = height_bst_node(node->right);
+		return 1 + max(left_height, right_height);
+	}
+}
+
+int height_bst(BST* self) {
+	return height_bst_node(self->root);
+}
+
+
 
 // recursive function to detroy all node
 void destroy_bst_node(BSTNodePtr self) {
@@ -136,6 +180,7 @@ void bst_test() {
 	while (quit == 0) {
 		printf_s("Enter some data: ");
 		scanf_s("%d", &data);
+
 		if (data != 0) {
 			insert_bst(&tree, data);
 		}
@@ -143,30 +188,21 @@ void bst_test() {
 			quit = 1;
 		}
 	}
+	printf_s("In-Order:");
 	print_in_order_bst(&tree);
 	printf_s("\n");
+
+
+	printf_s("Pre-Order:");
+	print_pre_order_bst(&tree);
+	printf_s("\n");
+
+
+	printf_s("Post-Order:");
+	print_post_order_bst(&tree);
+	printf_s("\n");
+
+	int tree_height = height_bst(&tree);
+	printf("Height of the tree: %d\n", tree_height);
 }
 
-void print_pre_order_bst_recursive(BSTNodePtr node) {
-	if (node != NULL) {
-		printf("%d ", node->data_item);
-		print_pre_order_bst_recursive(node->left);
-		print_pre_order_bst_recursive(node->right);
-	}
-}
-
-void print_pre_order_bst(BST* self) {
-	print_pre_order_bst_recursive(self->root);
-}
-
-void print_post_order_bst_recursive(BSTNodePtr node) {
-	if (node != NULL) {
-		print_post_order_bst_recursive(node->left);
-		print_post_order_bst_recursive(node->right);
-		printf("%d ", node->data_item);
-	}
-}
-
-void print_post_order_bst(BST* self) {
-	print_post_order_bst_recursive(self->root);
-}

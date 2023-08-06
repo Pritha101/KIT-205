@@ -75,3 +75,12 @@ void print_pre_order_bst(BST* self);  // New function for pre-order printing
 
 
 void print_post_order_bst(BST* self); // New function for post-order printing
+
+
+/**
+ * @brief Returns the height of the binary search tree
+ *
+ * @param self Pointer to the binary search tree
+ * @return The height of the tree
+ */
+int height_bst(BST* self);
